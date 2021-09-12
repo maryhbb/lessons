@@ -4,7 +4,7 @@ describe('the map function', () => {
 
    it('should correctly double each value', () => {
       const result = map([1,2,3,7,5,4,2], x => x * 2);
-      expect(result).toEqual([2,4,6,14,10,8,2]);   
+      expect(result).toEqual([2,4,6,14,10,8,4]);   
    });
 
    it('should correctly square each value', () => {
@@ -17,8 +17,8 @@ describe('the map function', () => {
       expect(result).toEqual(["hello", "cruel", "merciless", "world"]);   
    });
 
-   it('should correctly turn each value to lowercase', () => {
-      const result = map(["we", " hate ", " leading", "and ", "trailing ", " spaces "], s => s.toLowerCase());
+   it('should correctly trim the values', () => {
+      const result = map(["we", " hate ", " leading", "and ", "trailing ", " spaces "], s => s.trim());
       expect(result).toEqual(["we", "hate", "leading", "and", "trailing", "spaces"]);   
    });
 });
