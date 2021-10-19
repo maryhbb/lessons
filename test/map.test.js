@@ -1,6 +1,6 @@
 const map = require('../src/map.js');
 
-describe('the map function', () => {
+describe.skip('the map function', () => {
 
    it('should correctly double each value', () => {
       const result = map([1,2,3,7,5,4,2], x => x * 2);
