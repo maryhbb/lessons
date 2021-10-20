@@ -7,8 +7,11 @@ function filterByAge(people) {
    return  people.filter(item => item.age > 18);
 }
 
-
 // esm ro sare avalin space taghsim kon be firstName, lastName
+function splitName(person) {
+}
+
+// mesle splitName ama baraaye ye array az jense Person
 function mapToName(people) {
 
 }
@@ -25,6 +28,7 @@ function filterMapAndSplit(people) {
 
 module.exports = {
     filterByAge,
+    splitName,
     mapToName,
     splitByGender,
     filterMapAndSplit,

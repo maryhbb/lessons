@@ -1,4 +1,4 @@
-const { filterByAge } = require("../src/people.js");
+const { filterByAge, splitName } = require("../src/people.js");
 const testData = require("../src/data.js");
 
 describe('filterByAge', () => {
@@ -62,4 +62,52 @@ describe('filterByAge', () => {
             gender: 'male',
         }]);
     });
+});
+
+describe('splitName', () => {
+    test("should split Azam's name correctly", () => {
+        const input = {
+            name: "Ali Vaez",
+            age: 35,
+            gender: 'male',
+        };
+
+        expect(splitName(input)).toEqual({
+            firstName: 'Ali',
+            lastName: 'Vaez',
+            age: 35,
+            gender: 'male',
+        });
+    });
+
+    test("should split Raee's name correctly", () => {
+        const input = {
+            name: "Raee Habibi",
+            age: 38,
+            gender: 'female',
+        };
+
+        expect(splitName(input)).toEqual({
+            firstName: 'Raee',
+            lastName: 'Habibi',
+            age: 38,
+            gender: 'female',
+        });
+    });
+
+    test("should split Mani's name correctly", () => {
+        const input = {
+                name: "Mani Habibi",
+                age: 16,
+                gender: 'male',
+            };
+
+        expect(splitName(input)).toEqual({
+            firstName: 'Mani',
+            lastName: 'Habibi',
+            age: 16,
+            gender: 'male',
+        });
+    });
+
 });
