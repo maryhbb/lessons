@@ -1,5 +1,6 @@
-const { filterByAge, splitName } = require("../src/people.js");
+const {filterByAge, splitName} = require("../src/people.js");
 const testData = require("../src/data.js");
+const {mapToName} = require("../src/people");
 
 describe('filterByAge', () => {
     test('should remove people that are less than 18 years old', () => {
@@ -97,10 +98,10 @@ describe('splitName', () => {
 
     test("should split Mani's name correctly", () => {
         const input = {
-                name: "Mani Habibi",
-                age: 16,
-                gender: 'male',
-            };
+            name: "Mani Habibi",
+            age: 16,
+            gender: 'male',
+        };
 
         expect(splitName(input)).toEqual({
             firstName: 'Mani',
@@ -108,6 +109,54 @@ describe('splitName', () => {
             age: 16,
             gender: 'male',
         });
+    });
+});
+
+
+describe('mapToName', () => {
+
+    test('should map persons correctly', () => {
+        const input = [{
+            name: "John Doe",
+            age: 43,
+            gender: 'male',
+        }, {
+            name: "Jane Doe",
+            age: 38,
+            gender: 'female',
+        }, {
+            name: "Mani Habibi",
+            age: 16,
+            gender: 'male',
+        }, {
+            name: "Raee Habibi",
+            age: 39,
+            gender: 'female',
+        }];
+
+        const expectedOutput = [{
+            firstName: "John",
+            lastName: "Doe",
+            age: 43,
+            gender: 'male',
+        }, {
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 38,
+            gender: 'female',
+        }, {
+            firstName: "Mani",
+            lastName: "Habibi",
+            age: 16,
+            gender: 'male',
+        }, {
+            firstName: "Raee",
+            lastName: "Habibi",
+            age: 39,
+            gender: 'female',
+        }];
+
+        expect(mapToName(input)).toEqual(expectedOutput);
     });
 
     test("should split Raee's name correctly", () => {
