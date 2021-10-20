@@ -6,20 +6,13 @@ function filterByAge(people) {
 }
 
 // esm ro sare avalin space taghsim kon be firstName, lastName
-function splitName(person) {
-    let namePart = person.name.split(' ');
-    let firstName = namePart[0];
-    let lastName = namePart[1];
-
-    let result = {
+function splitName({name, ...rest}) {
+    let [firstName, lastName] = name.split(' ');
+    return {
         firstName,
         lastName,
-        age: person.age,
-        gender: person.gender,
-
+        ...rest,
     };
-    return result;
-
 }
 
 // mesle splitName ama baraaye ye array az jense Person
