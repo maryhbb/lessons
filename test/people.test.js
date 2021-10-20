@@ -110,4 +110,13 @@ describe('splitName', () => {
         });
     });
 
+    test("should split Raee's name correctly", () => {
+        const input = {
+            name: "Raee Habibi",
+            age: 38,
+            gender: 'female',
+        };
+        const result = splitName(input);
+
+    });
 });

@@ -1,14 +1,25 @@
-
-
 // har ki ke sennesh paayine 18 hast ro hazf kon
 function filterByAge(people) {
     // code ro injaa benevis
 
-   return  people.filter(item => item.age > 18);
+    return people.filter(item => item.age > 18);
 }
 
 // esm ro sare avalin space taghsim kon be firstName, lastName
 function splitName(person) {
+    let namePart = person.name.split(' ');
+    let firstName = namePart[0];
+    let lastName = namePart[1];
+
+    let result = {
+        firstName,
+        lastName,
+        age: person.age,
+        gender: person.gender,
+
+    };
+    return result;
+
 }
 
 // mesle splitName ama baraaye ye array az jense Person
