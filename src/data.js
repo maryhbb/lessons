@@ -11,7 +11,7 @@ const people = [{
     age: 16,
     gender: 'male',
 }, {
-    name: "Raee",
+    name: "Raee Habibi",
     age: 39,
     gender: 'female',
 }];

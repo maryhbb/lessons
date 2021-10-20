@@ -13,7 +13,7 @@ describe('filterByAge', () => {
             age: 38,
             gender: 'female',
         }, {
-            name: "Raee",
+            name: "Raee Habibi",
             age: 39,
             gender: 'female',
         }]);
@@ -26,7 +26,7 @@ describe('filterByAge', () => {
 
     test('should remove one item', () => {
         const result = filterByAge([{
-            name: 'Raee',
+            name: 'Raee Habibi',
             age: 39,
             gender: 'female',
         }]);

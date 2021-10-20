@@ -3,6 +3,8 @@
 // har ki ke sennesh paayine 18 hast ro hazf kon
 function filterByAge(people) {
     // code ro injaa benevis
+
+   return  people.filter(item => item.age > 18);
 }
 
 
