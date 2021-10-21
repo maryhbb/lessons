@@ -1,10 +1,29 @@
-const {filterByAge, splitName} = require("../src/people.js");
-const testData = require("../src/data.js");
+import {filterByAge, splitName} from "../src/people";
+import {Person, SimplePerson} from "../types";
+
 const {mapToName} = require("../src/people");
+
+const people: SimplePerson[] = [{
+    name: "John Doe",
+    age: 43,
+    gender: 'male',
+}, {
+    name: "Jane Doe",
+    age: 38,
+    gender: 'female',
+}, {
+    name: "Mani Habibi",
+    age: 16,
+    gender: 'male',
+}, {
+    name: "Raee Habibi",
+    age: 39,
+    gender: 'female',
+}]
 
 describe('filterByAge', () => {
     test('should remove people that are less than 18 years old', () => {
-        const result = filterByAge(testData.people);
+        const result = filterByAge(people);
         expect(result).toEqual([{
             name: "John Doe",
             age: 43,
@@ -67,7 +86,7 @@ describe('filterByAge', () => {
 
 describe('splitName', () => {
     test("should split Azam's name correctly", () => {
-        const input = {
+        const input: SimplePerson = {
             name: "Ali Vaez",
             age: 35,
             gender: 'male',
@@ -82,7 +101,7 @@ describe('splitName', () => {
     });
 
     test("should split Raee's name correctly", () => {
-        const input = {
+        const input: SimplePerson = {
             name: "Raee Habibi",
             age: 38,
             gender: 'female',
@@ -97,7 +116,7 @@ describe('splitName', () => {
     });
 
     test("should split Mani's name correctly", () => {
-        const input = {
+        const input: SimplePerson = {
             name: "Mani Habibi",
             age: 16,
             gender: 'male',
@@ -116,7 +135,7 @@ describe('splitName', () => {
 describe('mapToName', () => {
 
     test('should map persons correctly', () => {
-        const input = [{
+        const input: SimplePerson[] = [{
             name: "John Doe",
             age: 43,
             gender: 'male',
@@ -134,7 +153,7 @@ describe('mapToName', () => {
             gender: 'female',
         }];
 
-        const expectedOutput = [{
+        const expectedOutput: Person[] = [{
             firstName: "John",
             lastName: "Doe",
             age: 43,
@@ -158,6 +177,4 @@ describe('mapToName', () => {
 
         expect(mapToName(input)).toEqual(expectedOutput);
     });
-
-
 });
