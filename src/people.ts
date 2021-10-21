@@ -24,18 +24,19 @@ export function mapToName(people: SimplePerson[]): Person[] {
 
 // banaa bar jensiat be do gorooh (array) taghsim kon
 export function splitByGender(people: Person[]): GenderGroups {
-    const maleGroup: Male[] = [];
-    const femaleGroup: Female[] = [];
-
-    people.forEach(person => {
-        if (person.gender === 'male') {
-            maleGroup.push(person as Male);
-        } else {
-            femaleGroup.push(person as Female);
-        }
-    });
-
-    return { male: maleGroup, female: femaleGroup };
+    const [male, female] = people.reduce(
+        (acc, person) => {
+            const [maleGroup, femaleGroup] = acc;
+            if (person.gender === 'male') {
+                maleGroup.push(person as Male);
+            } else {
+                femaleGroup.push(person as Female);
+            }
+            return acc;
+        },
+        [[] as Male[], [] as Female[]] as const,
+    );
+    return { male, female };
 }
 
 // har setta ro anjaam bede
