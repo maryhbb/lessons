@@ -17,7 +17,7 @@ function splitName({name, ...rest}) {
 
 // mesle splitName ama baraaye ye array az jense Person
 function mapToName(people) {
-
+    return people.map(splitName);
 }
 
 // banaa bar jensiat be do gorooh (array) taghsim kon
