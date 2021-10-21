@@ -4,7 +4,8 @@
   "description": "",
   "main": "",
   "scripts": {
-    "test": "jest test"
+    "test": "jest test",
+    "beautify": "prettier src --write"
   },
   "author": "",
   "license": "ISC",
