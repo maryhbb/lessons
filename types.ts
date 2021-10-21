@@ -11,11 +11,15 @@ export type SimplePerson = Omit<Person, 'firstName' | 'lastName'> & {
     name: string;
 }
 
-export type Male = Person & { gender: 'male' };
+export interface Male extends Person {
+    gender: 'male'
+}
 
-export type Female = Person & { gender: 'female' };
+export interface Female extends Person {
+    gender: 'female'
+}
 
 export interface GenderGroups {
-    males: Male[],
-    females: Female[],
+    male: Male[],
+    female: Female[],
 }

@@ -1,4 +1,4 @@
-import {filterByAge, splitName} from "../src/people";
+import {filterByAge, splitByGender, splitName} from "../src/people";
 import {Person, SimplePerson} from "../types";
 
 const {mapToName} = require("../src/people");
@@ -177,4 +177,99 @@ describe('mapToName', () => {
 
         expect(mapToName(input)).toEqual(expectedOutput);
     });
+});
+
+
+describe('splitByGender', () => {
+    test('should return empty list for empty input', () => {
+        expect(splitByGender([])).toEqual({ male: [], female: [] });
+    });
+
+    test('should put all items into female if it is an all female list', () => {
+        const persons: Person[] = [{
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 38,
+            gender: 'female',
+        }, {
+            firstName: "Raee",
+            lastName: "Habibi",
+            age: 39,
+            gender: 'female',
+        }];
+
+        expect(splitByGender(persons)).toEqual({
+            male: [],
+            female: persons,
+        });
+    });
+
+    test('should put all items into male if it is an all male list', () => {
+        const persons: Person[] = [{
+            firstName: "John",
+            lastName: "Doe",
+            age: 43,
+            gender: 'male',
+        }, {
+            firstName: "Mani",
+            lastName: "Habibi",
+            age: 16,
+            gender: 'male',
+        }];
+
+        expect(splitByGender(persons)).toEqual({
+            male: persons,
+            female: [],
+        });
+    });
+
+    test('should return the correct gender groups', () => {
+        const persons: Person[] = [{
+            firstName: "John",
+            lastName: "Doe",
+            age: 43,
+            gender: 'male',
+        }, {
+            firstName: "Jane",
+            lastName: "Doe",
+            age: 38,
+            gender: 'female',
+        }, {
+            firstName: "Raee",
+            lastName: "Habibi",
+            age: 38,
+            gender: 'female',
+        }, {
+            firstName: "Mani",
+            lastName: "Habibi",
+            age: 16,
+            gender: 'male',
+        }];
+
+        expect(splitByGender(persons)).toEqual({
+            male: [{
+                firstName: "John",
+                lastName: "Doe",
+                age: 43,
+                gender: 'male',
+            }, {
+                firstName: "Mani",
+                lastName: "Habibi",
+                age: 16,
+                gender: 'male',
+            }],
+            female: [{
+                firstName: "Jane",
+                lastName: "Doe",
+                age: 38,
+                gender: 'female',
+            }, {
+                firstName: "Raee",
+                lastName: "Habibi",
+                age: 38,
+                gender: 'female',
+            }],
+        });
+    });
+
 });

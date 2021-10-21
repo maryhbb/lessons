@@ -1,5 +1,5 @@
 // har ki ke sennesh paayine 18 hast ro hazf kon
-import {GenderGroups, Person, SimplePerson} from "../types";
+import { Female, GenderGroups, Male, Person, SimplePerson } from '../types';
 
 export function filterByAge(people: SimplePerson[]): SimplePerson[] {
     // code ro injaa benevis
@@ -8,7 +8,7 @@ export function filterByAge(people: SimplePerson[]): SimplePerson[] {
 }
 
 // esm ro sare avalin space taghsim kon be firstName, lastName
-export function splitName({name, ...rest}: SimplePerson): Person {
+export function splitName({ name, ...rest }: SimplePerson): Person {
     let [firstName, lastName] = name.split(' ');
     return {
         firstName,
@@ -24,20 +24,10 @@ export function mapToName(people: SimplePerson[]): Person[] {
 
 // banaa bar jensiat be do gorooh (array) taghsim kon
 export function splitByGender(people: Person[]): GenderGroups {
-
     // todo: to be implemented
-    return {
-        males: [],
-        females: [],
-    };
 }
 
 // har setta ro anjaam bede
 export function filterMapAndSplit(people: SimplePerson[]): GenderGroups {
-
     // todo: to be implemented
-    return {
-        males: [],
-        females: [],
-    }
 }
