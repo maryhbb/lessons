@@ -55,11 +55,9 @@ export function projectArrays(): IdTitlePair[] {
 
     const videoAndTitlePairs: IdTitlePair[] = [];
 
-    // ------------ INSERT CODE HERE! -----------------------------------
-    // Use forEach function to accumulate {id, title} pairs from each video.
-    // Put the results into the videoAndTitlePairs array using the Array's
-    // push() method. Example: videoAndTitlePairs.push(newItem);
-    // ------------ INSERT CODE HERE! -----------------------------------
+    newReleases.forEach(function (release) {
+        videoAndTitlePairs.push({ id: release.id, title: release.title });
+    });
 
     return videoAndTitlePairs;
 }
