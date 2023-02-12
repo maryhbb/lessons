@@ -5,14 +5,20 @@ export function countBooks(books: Book[]): number {
 }
 
 export function findUniqueCountries(books: Book[]): string[] {
-    // for (const book of books) {
-    //     console.log(book.country)
-    // }
-
     let countries = books.map(book => book.country);
-    console.log(countries);
-    let uniqueCountries = countries.filter(
-        (value, index, arr) => arr.indexOf(value) === index,
-    );
-    return uniqueCountries;
+
+    // let uniqueCountries = countries.filter(
+    //     (value, index, arr) => arr.indexOf(value) === index,
+    // );
+    // return uniqueCountries;
+
+    const results: string[] = [];
+
+    for (const country of countries) {
+        if (!results.includes(country)) {
+            results.push(country);
+        }
+    }
+    return results;
+
 }
