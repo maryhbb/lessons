@@ -5,7 +5,7 @@ export function countBooks(books: Book[]): number {
 }
 
 export function findUniqueCountries(books: Book[]): string[] {
-    let countries = books.map(book => book.country);
+    const countries = books.map(book => book.country);
 
     // let uniqueCountries = countries.filter(
     //     (value, index, arr) => arr.indexOf(value) === index,
@@ -20,5 +20,4 @@ export function findUniqueCountries(books: Book[]): string[] {
         }
     }
     return results;
-
 }
